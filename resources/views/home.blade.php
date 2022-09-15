@@ -17,32 +17,33 @@
                             {{ __('You are logged in!') }}
                         </center>
                     </div>
-                    <div>
-                        <div class="table-responsive p-0">
-                            <table class="table text-center">
-                                <thead>
+                </div>
+                <div class="card" style="top: 20px">
+                    <div class="table-responsive p-0">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Title</th>
+                                    <th>Slug</th>
+                                    <th>Content</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1; ?>
+                                @foreach ($post as $data)
                                     <tr>
-                                        <th>No</th>
-                                        <th>Title</th>
-                                        <th>Slug</th>
-                                        <th>Content</th>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->title }}</td>
+                                        <td>{{ $data->slug }}</td>
+                                        <td>{{ $data->content }}</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 1; ?>
-                                    @foreach ($post as $data)
-                                        <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $data->title }}</td>
-                                            <td>{{ $data->slug }}</td>
-                                            <td>{{ $data->content }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+
             </div>
         </div>
     @endsection
