@@ -50,6 +50,15 @@
                             <input type="tgl_lahir" name="tgl_lahir" class="form-control" id="tgl_lahir"
                                 value="{{ $pegawai->tgl_lahir }}" ariadescribedby="tgl_lahir">
                         </div>
+                        <div class="form-group">
+                            <label for="id_jabatan">Jabatan</label>
+                            <select name="id_jabatan" id="id_jabatan" class="form-control">
+                                <option value="{{ $pegawai->id_jabatan }}">{{ $pegawai->nama_jabatan }}</option>
+                                @foreach ($jabatan as $item)
+                                    <option value="{{ $item->id_jabatan }}">{{ $item->nama_jabatan }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

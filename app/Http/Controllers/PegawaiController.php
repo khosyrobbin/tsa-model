@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PegawaiModel;
+use App\Models\JabatanModel;
 use Illuminate\Support\Facades\DB;
 
 class PegawaiController extends Controller
@@ -16,8 +17,9 @@ class PegawaiController extends Controller
     public function index()
     {
         $pegawai = PegawaiModel::latest()->paginate(3)->withQueryString();
-
-        return view('pegawai.index', compact('pegawai'));
+        // $pegawai = PegawaiModel::with('jabatan')->get();
+        $jabatan = JabatanModel::all();
+        return view('pegawai.index', compact('pegawai','jabatan'));
         // ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -28,7 +30,8 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        return view('pegawai.create');
+        $jabatan = JabatanModel::all();
+        return view('pegawai.create', compact('jabatan'));
     }
 
     /**
@@ -46,9 +49,13 @@ class PegawaiController extends Controller
             'email' => 'required',
             'alamat' => 'required',
             'tgl_lahir' => 'required',
+            'id_jabatan' => 'required',
         ]);
 
         PegawaiModel::create($request->all());
+
+        // $jabatan = new JabatanModel();
+        // $jabatan->id_jabatan = $request->get('jabatan');
 
         return redirect()->route('pegawai.index')
             ->with('success', 'Pegawai created successfully.');

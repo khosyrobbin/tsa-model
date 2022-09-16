@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('mahasiswa', MahasiswaController::class);
-Route::resource('pegawai', PegawaiController::class);
+// Route::resource('pegawai', PegawaiController::class);
+Route::resource('pegawai', PController::class);
 //Route search
 Route::get('/cari', [PegawaiController::class, 'search'])->name('search');

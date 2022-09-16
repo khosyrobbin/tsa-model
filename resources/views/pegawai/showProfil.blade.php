@@ -4,7 +4,7 @@
         <div class="row justify-content-center align-items-center">
             <div class="card" style="width: 24rem;">
                 <div class="card-header">
-                    Detail Pegawai
+                    Detail Profil Pegawai
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">

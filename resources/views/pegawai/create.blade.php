@@ -46,8 +46,16 @@
                         </div>
                         <div class="form-group">
                             <label for="tgl_lahir">Tanggal Lahir</label>
-                            <input type="tgl_lahir" name="tgl_lahir" class="form-control" id="tgl_lahir"
+                            <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir"
                                 ariadescribedby="tgl_lahir">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_jabatan">Jabatan</label>
+                            <select class=" form-control" name="id_jabatan" id="id_jabatan">
+                                @foreach ($jabatan as $j)
+                                    <option value="{{ $j->id_jabatan }}">{{ $j->nama_jabatan }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

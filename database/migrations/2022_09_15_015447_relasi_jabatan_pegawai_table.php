@@ -18,12 +18,6 @@ return new class extends Migration
             $table->foreign('id_jabatan')->references('id_jabatan')->on('jabatan');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('pegawai', function (Blueprint $table){

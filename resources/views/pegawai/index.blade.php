@@ -29,6 +29,7 @@
             <th>Email</th>
             <th>Alamat</th>
             <th>Tanggal Lahir</th>
+            <th>Jabatan</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($pegawai as $data)
@@ -39,6 +40,7 @@
                 <td>{{ $data->email }}</td>
                 <td>{{ $data->alamat }}</td>
                 <td>{{ $data->tgl_lahir }}</td>
+                <td>{{ $data->nama_jabatan }}</td>
                 <td>
                     <form action="{{ route('pegawai.destroy', ['pegawai' => $data->id_pegawai]) }}" method="POST">
                         <a class="btn btn-info" href="{{ route('pegawai.show', $data->id_pegawai) }}">Show</a>
