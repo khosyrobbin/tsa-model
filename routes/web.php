@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PController;
+use App\Http\Controllers\ArtikelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,4 @@ Route::resource('mahasiswa', MahasiswaController::class);
 Route::resource('pegawai', PController::class);
 //Route search
 Route::get('/cari', [PegawaiController::class, 'search'])->name('search');
+Route::resource('artikel', ArtikelController::class);
